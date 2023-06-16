@@ -36,28 +36,31 @@
         #span1{
             color: deeppink;
         }
+        #span2{
+            color: chartreuse;
+        }
         #counter{
             color: black;
             text-align: center;
             font-weight: bold;
             font-size: 110px;
         }
-        #press, #press2, #press3{
+        #press, #press2, #press3, #press4{
             width: 170px;
             height: 50px;
             border-style: solid;
             text-align: center;
             outline: none;
             border-color: black;
-            background-color: aqua;
-            color: white;
+            background-color: white;
+            color: black;
             font-size: 30px;
             margin-left: 110px;
         }
         #main{
             height: 106.5%;
             width: 101%;
-            background-color: aqua;
+            background-color: white;
             display: flex;
             align-items: center;
             flex-direction: column;
@@ -68,17 +71,30 @@
         }
         #shop{
             align-items: flex-start;
+            background-color: grey;
+            margin-bottom: -20px;
+            margin-left: -10px;
+            width: 102%;
         }
         #label1{
-            color: black;
+            color: white;
             text-align: center;
             font-size: 40px;
+            background-color: black;
+            width: 101%;
+            margin-top: -18px;
+            margin-left: -8px;
         }
         #label2{
             font-weight: bold;
-            color: black;
+            color: white;
         }
-        #buybtn1, #buybtn2{
+        #label3{
+            font-weight: bold;
+            color: black;
+            text-align: center;
+        }
+        #buybtn1, #buybtn2, #buybtn3{
             border-style: solid;
             text-align: center;
             outline: none;
@@ -87,23 +103,32 @@
             color: white;
             width: 145px;
             height: 40px;
+            font-weight: bold;
+            font-size: 25px;
         }
         #item1{
-            background-color: grey;
+            background-color: black;
             display: inline-block;
             margin-right: 20px;
+            margin-left: 20px;
+            margin-bottom: 20px;
         }
-        #press2, #press3{
-            margin-top: -50000px;
+        #press2{
+            margin-top: -5000px;
+        }
+        #press3, #press4{
+            margin-top: -5000px;
         }
     </style>
     <div id="main">
         <div id="frame">
-            <p id="paragraph">Clicker Game <span id="span1">V1</span></p>
+            <p id="paragraph">Clicker Game <span id="span1">V1.2 <br> <span id="span2">Made by Alex</span></span></p>
             <p id="counter">0</p>
             <button id="press" onclick="add()">Click</button>
             <button id="press2" onclick="add2()">Click</button>
             <button id="press3" onclick="add3()">Click</button>
+            <button id="press4" onclick="add4()">Click</button>
+            <p id="label3">Scroll down for Shop</p>
         </div>
     </div>
     <div id="shop">
@@ -114,15 +139,20 @@
         <div id="item1"><p id="label2">Value Per Click: +4 <br> Auto-Clicker: None <br> Cost: 200 Clicks</p>
             <button id="buybtn2" onclick="buyitem2()">Buy</button>
         </div>
+        <div id="item1"><p id="label2">Value Per Click: +10 <br> Auto-Clicker: None <br> Cost: 1,000 Clicks</p>
+            <button id="buybtn3" onclick="buyitem3()">Buy</button>
+        </div>
     </div>
     <script>
         var btn = document.getElementById("press")
         var btn2 = document.getElementById("press2")
         var btn3 = document.getElementById("press3")
+        var btn4 = document.getElementById("press4")
         var counter = document.getElementById("counter")
         let clicks = 0;
         var buy1 = document.getElementById("buybtn1")
         var buy2 = document.getElementById("buybtn2")
+        var buy3 = document.getElementById("buybtn3")
         function add(){
             clicks++;
             counter.innerHTML = clicks
@@ -139,6 +169,18 @@
             clicks++;
             counter.innerHTML = clicks
         }
+        function add4(){
+            clicks++;
+            clicks++;
+            clicks++;
+            clicks++;
+            clicks++;
+            clicks++;
+            clicks++;
+            clicks++;
+            clicks++;
+            counter.innerHTML = clicks
+        }
         function buyitem(){
             if(clicks >49){
                 clicks = clicks -50
@@ -148,6 +190,7 @@
                 btn.style.marginTop="-50000px"
                 buy1.disabled=true;
                 buy1.innerHTML="Already Bought!"
+                buy1.style.fontSize="14px"
                 setTimeout(function() {
                    buy1.style.backgroundColor="black";
             }, 1000);
@@ -158,13 +201,28 @@
                 clicks = clicks -200
                 counter.innerHTML = clicks
                 buy2.style.backgroundColor="green"
-                btn2.style.marginTop="-5000000px"
-                btn.style.marginTop="-50000px"
+                btn2.style.marginTop="-50000px"
                 btn3.style.marginTop="0px"
                 buy2.disabled=true;
                 buy2.innerHTML="Already Bought!"
+                buy2.style.fontSize="14px"
                 setTimeout(function() {
                    buy2.style.backgroundColor="black";
+            }, 1000);
+            }
+            }
+            function buyitem3(){
+            if(clicks >999){
+                clicks = clicks -1000
+                counter.innerHTML = clicks
+                buy3.style.backgroundColor="green"
+                btn3.style.marginTop="-50000px"
+                btn4.style.marginTop="0px"
+                buy3.disabled=true;
+                buy3.innerHTML="Already Bought!"
+                buy3.style.fontSize="14px"
+                setTimeout(function() {
+                   buy3.style.backgroundColor="black";
             }, 1000);
             }
             }
