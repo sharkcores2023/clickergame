@@ -1,0 +1,173 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClickerGame</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            user-select: none;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: sans-serif;
+        }
+        #frame{
+            width: 390px;
+            height: 500px;
+            background-color: white;
+            margin-top: 71.681px;
+            margin-bottom: 0px;
+            margin-left: 15px;
+            margin-right: 15px;
+            align-items: center;
+        }
+        #paragraph{
+            color: black;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        #span1{
+            color: deeppink;
+        }
+        #counter{
+            color: black;
+            text-align: center;
+            font-weight: bold;
+            font-size: 110px;
+        }
+        #press, #press2, #press3{
+            width: 170px;
+            height: 50px;
+            border-style: solid;
+            text-align: center;
+            outline: none;
+            border-color: black;
+            background-color: aqua;
+            color: white;
+            font-size: 30px;
+            margin-left: 110px;
+        }
+        #main{
+            height: 106.5%;
+            width: 101%;
+            background-color: aqua;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            user-select: none;
+            background-position: center;
+            margin-top: -15px;
+            margin-left: -10px;
+        }
+        #shop{
+            align-items: flex-start;
+        }
+        #label1{
+            color: black;
+            text-align: center;
+            font-size: 40px;
+        }
+        #label2{
+            font-weight: bold;
+            color: black;
+        }
+        #buybtn1, #buybtn2{
+            border-style: solid;
+            text-align: center;
+            outline: none;
+            border-color: black;
+            background-color: black;
+            color: white;
+            width: 145px;
+            height: 40px;
+        }
+        #item1{
+            background-color: grey;
+            display: inline-block;
+            margin-right: 20px;
+        }
+        #press2, #press3{
+            margin-top: -50000px;
+        }
+    </style>
+    <div id="main">
+        <div id="frame">
+            <p id="paragraph">Clicker Game <span id="span1">V1</span></p>
+            <p id="counter">0</p>
+            <button id="press" onclick="add()">Click</button>
+            <button id="press2" onclick="add2()">Click</button>
+            <button id="press3" onclick="add3()">Click</button>
+        </div>
+    </div>
+    <div id="shop">
+        <p id="label1">Click Shop</p>
+        <div id="item1"><p id="label2">Value Per Click: +2 <br> Auto-Clicker: None <br> Cost: 50 Clicks</p>
+            <button id="buybtn1" onclick="buyitem()">Buy</button>
+        </div>
+        <div id="item1"><p id="label2">Value Per Click: +4 <br> Auto-Clicker: None <br> Cost: 200 Clicks</p>
+            <button id="buybtn2" onclick="buyitem2()">Buy</button>
+        </div>
+    </div>
+    <script>
+        var btn = document.getElementById("press")
+        var btn2 = document.getElementById("press2")
+        var btn3 = document.getElementById("press3")
+        var counter = document.getElementById("counter")
+        let clicks = 0;
+        var buy1 = document.getElementById("buybtn1")
+        var buy2 = document.getElementById("buybtn2")
+        function add(){
+            clicks++;
+            counter.innerHTML = clicks
+        }
+        function add2(){
+            clicks++;
+            clicks++;
+            counter.innerHTML = clicks
+        }
+        function add3(){
+            clicks++;
+            clicks++;
+            clicks++;
+            clicks++;
+            counter.innerHTML = clicks
+        }
+        function buyitem(){
+            if(clicks >49){
+                clicks = clicks -50
+                counter.innerHTML = clicks
+                buy1.style.backgroundColor="green"
+                btn2.style.marginTop="0px"
+                btn.style.marginTop="-50000px"
+                buy1.disabled=true;
+                buy1.innerHTML="Already Bought!"
+                setTimeout(function() {
+                   buy1.style.backgroundColor="black";
+            }, 1000);
+            }
+            }
+                    function buyitem2(){
+            if(clicks >199){
+                clicks = clicks -200
+                counter.innerHTML = clicks
+                buy2.style.backgroundColor="green"
+                btn2.style.marginTop="-5000000px"
+                btn.style.marginTop="-50000px"
+                btn3.style.marginTop="0px"
+                buy2.disabled=true;
+                buy2.innerHTML="Already Bought!"
+                setTimeout(function() {
+                   buy2.style.backgroundColor="black";
+            }, 1000);
+            }
+            }
+    </script>
+</body>
+</html>
