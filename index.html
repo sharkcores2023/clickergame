@@ -34,10 +34,10 @@
             font-size: 20px;
         }
         #span1{
-            color: deeppink;
+            color: rgb(0, 0, 0);
         }
         #span2{
-            color: chartreuse;
+            color: rgb(0, 0, 0);
         }
         #counter{
             color: black;
@@ -45,13 +45,16 @@
             font-weight: bold;
             font-size: 110px;
         }
-        #press, #press2, #press3, #press4{
+        #press, #press2, #press3, #press4, #press5{
             width: 170px;
             height: 50px;
             border-style: solid;
             text-align: center;
             outline: none;
-            border-color: black;
+            border-top-color: black;
+            border-bottom-color: gold;
+            border-left-color: red;
+            border-right-color: red;
             background-color: white;
             color: black;
             font-size: 30px;
@@ -70,11 +73,11 @@
             margin-left: -10px;
         }
         #shop{
-            align-items: flex-start;
+            align-items: center;
             background-color: grey;
             margin-bottom: -20px;
             margin-left: -10px;
-            width: 102%;
+            width: 101%;
         }
         #label1{
             color: white;
@@ -94,7 +97,7 @@
             color: black;
             text-align: center;
         }
-        #buybtn1, #buybtn2, #buybtn3{
+        #buybtn1, #buybtn2, #buybtn3, #buybtn4{
             border-style: solid;
             text-align: center;
             outline: none;
@@ -112,27 +115,45 @@
             margin-right: 20px;
             margin-left: 20px;
             margin-bottom: 20px;
+            text-align: center;
         }
-        #press2{
+        #press2, #press3, #press4, #press5{
             margin-top: -5000px;
         }
-        #press3, #press4{
-            margin-top: -5000px;
+        #span3{
+            color: black;
+            text-decoration: underline;
+        }
+        #span4{
+            color: red;
+            text-decoration: underline;
+        }
+        #span5{
+            color: gold;
+            text-decoration: underline;
+        }
+        #totalclicks{
+            font-weight: bold;
+            margin-top: -120px;
+            margin-bottom: 120px;
+            margin-left: 185px;
         }
     </style>
     <div id="main">
         <div id="frame">
-            <p id="paragraph">Clicker Game <span id="span1">V1.2 <br> <span id="span2">Made by Alex</span></span></p>
+            <p id="paragraph">Clicker Game <span id="span1">V1.3 <br> <span id="span2">Made in <span id="span3">Ger</span><span id="span4">ma</span><span id="span5">ny</span></span></span></p>
             <p id="counter">0</p>
+            <p id="totalclicks">0</p>
             <button id="press" onclick="add()">Click</button>
             <button id="press2" onclick="add2()">Click</button>
             <button id="press3" onclick="add3()">Click</button>
             <button id="press4" onclick="add4()">Click</button>
-            <p id="label3">Scroll down for Shop</p>
+            <button id="press5" onclick="add5()">Click</button>
+            <p id="label3">Scroll down to Shop</p>
         </div>
     </div>
     <div id="shop">
-        <p id="label1">Click Shop</p>
+        <p id="label1">Shop</p>
         <div id="item1"><p id="label2">Value Per Click: +2 <br> Auto-Clicker: None <br> Cost: 50 Clicks</p>
             <button id="buybtn1" onclick="buyitem()">Buy</button>
         </div>
@@ -142,32 +163,52 @@
         <div id="item1"><p id="label2">Value Per Click: +10 <br> Auto-Clicker: None <br> Cost: 1,000 Clicks</p>
             <button id="buybtn3" onclick="buyitem3()">Buy</button>
         </div>
+         <div id="item1"><p id="label2">Value Per Click: +15 <br> Auto-Clicker: None <br> Cost: 2,500 Clicks</p>
+            <button id="buybtn4" onclick="buyitem4()">Buy</button>
+        </div>
     </div>
     <script>
         var btn = document.getElementById("press")
         var btn2 = document.getElementById("press2")
         var btn3 = document.getElementById("press3")
         var btn4 = document.getElementById("press4")
+        var btn5 = document.getElementById("press5")
         var counter = document.getElementById("counter")
         let clicks = 0;
+        let tclicks = 0;
         var buy1 = document.getElementById("buybtn1")
         var buy2 = document.getElementById("buybtn2")
         var buy3 = document.getElementById("buybtn3")
+        var buy4 = document.getElementById("buybtn4")
+        var autoclick = false
+        var totalclicks = document.getElementById("totalclicks")
+
         function add(){
             clicks++;
+            tclicks++;
             counter.innerHTML = clicks
+            totalclicks.innerHTML = tclicks
         }
         function add2(){
             clicks++;
             clicks++;
+            tclicks++;
+            tclicks++;
             counter.innerHTML = clicks
+            totalclicks.innerHTML = tclicks
         }
         function add3(){
             clicks++;
             clicks++;
             clicks++;
             clicks++;
+
+            tclicks++;
+            tclicks++;
+            tclicks++;
+            tclicks++;
             counter.innerHTML = clicks
+            totalclicks.innerHTML = tclicks
         }
         function add4(){
             clicks++;
@@ -179,7 +220,52 @@
             clicks++;
             clicks++;
             clicks++;
+            tclicks++;
+            tclicks++;
+            tclicks++;
+            tclicks++; 
+            tclicks++;
+            tclicks++;
+            tclicks++;
+            tclicks++;
+            tclicks++;
             counter.innerHTML = clicks
+            totalclicks.innerHTML = tclicks
+        }
+        function add5(){
+            clicks++;
+            clicks++;
+            clicks++;
+            clicks++;
+            clicks++;
+            clicks++;
+            clicks++;
+            clicks++;
+            clicks++;
+            clicks++;
+            clicks++;
+            clicks++;
+            clicks++;
+            clicks++;
+            clicks++;
+
+            tclicks++;
+            tclicks++;
+            tclicks++;
+            tclicks++;
+            tclicks++;
+            tclicks++;
+            tclicks++;
+            tclicks++;
+            tclicks++;
+            tclicks++;
+            tclicks++;
+            tclicks++;
+            tclicks++;
+            tclicks++;
+            tclicks++;
+            counter.innerHTML = clicks
+            totalclicks.innerHTML = clicks
         }
         function buyitem(){
             if(clicks >49){
@@ -223,6 +309,21 @@
                 buy3.style.fontSize="14px"
                 setTimeout(function() {
                    buy3.style.backgroundColor="black";
+            }, 1000);
+            }
+            }
+            function buyitem4(){
+            if(clicks >2249){
+                clicks = clicks -2250
+                counter.innerHTML = clicks
+                buy4.style.backgroundColor="green"
+                btn4.style.marginTop="-50000px"
+                btn5.style.marginTop="0px"
+                buy4.disabled=true;
+                buy4.innerHTML="Already Bought!"
+                buy4.style.fontSize="14px"
+                setTimeout(function() {
+                   buy4.style.backgroundColor="black";
             }, 1000);
             }
             }
